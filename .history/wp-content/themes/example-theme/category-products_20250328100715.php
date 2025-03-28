@@ -8,13 +8,20 @@ get_header();
         echo '<p>'  . category_description() . '</p>';
         ?>
     </div>
-    <img src="<?php echo get_random_post_image(get_queried_object_id()); ?>" alt="randomkuva">
+    <?php
+    $header_images = get_uploaded_header_images();
+    array_shift($header_images);
+    ?>
+    <img src="<?php echo $header_images[0]['url'] ?>" alt="headerkuva" width="<?php echo get_custom_header()->width; ?>" height="<?php echo get_custom_header()->height; ?>">
 </section>
 <main>
     <section class="products">
+        <?php
+        $args = ['child_of' => get_queried_object_id()];
+        get_categories($args);
+        ?>
         <h2>Products</h2>
         <?php
-
         generate_article($wp_query);
         ?>
     </section>

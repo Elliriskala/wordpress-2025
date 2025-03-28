@@ -8,11 +8,15 @@ get_header();
         echo '<p>'  . category_description() . '</p>';
         ?>
     </div>
-    <img src="<?php echo get_random_post_image(get_queried_object_id()); ?>" alt="randomkuva">
+    <?php
+    $header_images = get_uploaded_header_images();
+    array_shift($header_images);
+    ?>
+    <img src="<?php echo $header_images[1]['url'] ?>" alt="randomkuva">
 </section>
 <main>
     <section class="products">
-        <h2>Products</h2>
+        <h2>Featured Products</h2>
         <?php
 
         generate_article($wp_query);

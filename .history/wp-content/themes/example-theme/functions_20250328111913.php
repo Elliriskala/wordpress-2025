@@ -44,7 +44,7 @@ function search_filter($query)
 }
 add_filter('pre_get_posts', 'search_filter');
 
-function my_breadcrumb_title_swapper($title,  $type)
+function my_breadcrumb_title_swapper($title,  $type, $id)
 {
     if (in_array('home', $type)) {
         $title = __('Home');

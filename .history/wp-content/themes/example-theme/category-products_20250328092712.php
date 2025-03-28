@@ -12,7 +12,7 @@ get_header();
 </section>
 <main>
     <section class="products">
-        <h2>Products</h2>
+        <h2>Featured Products</h2>
         <?php
 
         generate_article($wp_query);
